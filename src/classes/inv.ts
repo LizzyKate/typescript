@@ -1,14 +1,17 @@
-export class Invoice{
-    public client: string;
+import { format} from '../Interfaces/format.js'
+
+
+export class Invoice implements format{
+    readonly  client: string;
     private details: string;
-    readonly amount: number;
+    public amount: number;
 
     constructor(c:string, d:string, a:number){
         this.client = c;
         this.details = d;
         this.amount = a;
     }
-    format(){
+    from(){
         return `${this.client} owes ${this.amount} for ${this.details}`
     }
 }
